@@ -7,13 +7,13 @@ import FeatureProduct from "./FeatureProduct";
 import Control from "./Control";
 import Seen from "./Seen";
 import Newslater from "./Newslater";
-function Home({ data }) {
+function Home({ data , setSroductID}) {
   return (
     <>
       <Banner />
-      <Product data={data} />
-      <Support data={data} />
-      <FeatureProduct data={data} />
+      <Product data={data} setSroductID={setSroductID}/>
+      <Support data={data} setSroductID={setSroductID} />
+      <FeatureProduct data={data} setSroductID={setSroductID} />
       <Control />
       <Seen />
       <Newslater />

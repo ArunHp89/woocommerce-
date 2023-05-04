@@ -8,7 +8,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { Link } from "react-router-dom";
 
-function Product({ data }) {
+function Product({ data , setSroductID }) {
   var settings = {
     dots: false,
     infinite: true,
@@ -22,7 +22,7 @@ function Product({ data }) {
         <div className="row product-list-category">
           {data?.slice(0, 6).map((item, index) => (
             <div key={index} className="col-sm-2 col-6">
-              <Link to={`/collection/${item?.id}`}>
+              <Link onClick={()=>setSroductID(item.id)} to={`/collection/${item?.id}`}>
                 <div className="product-list-items">
                   <a href className="product-list-link">
                     <div className="product-thumnail">
