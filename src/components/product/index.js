@@ -5,6 +5,7 @@ import MobileFilter from "./MobileFilter";
 
 export default function Product({
   data,
+
   setData,
   orgData,
   onAddToCart,

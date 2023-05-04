@@ -1,7 +1,11 @@
 import React, { useState } from "react";
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
-export default function SingleProduct({ productID, setSroductID }) {
+export default function SingleProduct({
+  productID,
+  setSroductID,
+  onAddToCart,
+}) {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -218,7 +222,10 @@ export default function SingleProduct({ productID, setSroductID }) {
             </div>
             <div className="flex flex-wrap -mx-2 mb-12">
               <div className="w-full md:w-2/3 px-2 mb-2 md:mb-0">
-                <a className="btn btn-primary" href="#">
+                <a
+                  className="btn btn-primary"
+                  onClick={() => onAddToCart(data)}
+                >
                   Add to bag
                 </a>
               </div>

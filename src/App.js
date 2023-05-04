@@ -147,10 +147,7 @@ function App({ products }) {
                   data={data}
                   setData={setData}
                   orgData={orgData}
-                  products={products}
                   onAddToCart={addToCartHandler}
-                  cartItems={cartItems}
-                  totalCost={totalCost}
                 />
               }
             />
@@ -161,6 +158,7 @@ function App({ products }) {
                 <SingleProduct
                   productID={productID}
                   setSroductID={setSroductID}
+                  onAddToCart={addToCartHandler}
                 />
               }
             />
