@@ -107,6 +107,7 @@ function App({ products }) {
           onRemoveFromCart={removeFromCartHandler}
           totalCost={totalCost}
           onAddToCart={addToCartHandler}
+          setSroductID={setSroductID}
         />
         <Routes>
           <Route path="/">

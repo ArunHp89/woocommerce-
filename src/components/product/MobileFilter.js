@@ -1,6 +1,6 @@
 import React, { useState, setData, orgData } from "react";
 
-export default function MobileFilter() {
+export default function MobileFilter({ data, setData, orgData }) {
   const [sort, setSort] = useState(false);
   const [color, setColor] = useState(false);
   const [category, setCategory] = useState(false);
@@ -14,6 +14,7 @@ export default function MobileFilter() {
     });
     return setData(filter);
   };
+  console.log(orgData, "orgData   mob");
   return (
     <form className="mt-4 border-t border-gray-200">
       <h3 className="sr-only">Categories</h3>
@@ -58,10 +59,10 @@ export default function MobileFilter() {
           <span>Electronics</span>
         </li>
       </ul>
-      <div className="border-b  border-gray-200 py-6">
+      <div className="border-b  border-gray-200 py-6 px-4 ">
         <h3 className="-my-3 flow-root">
           {/* Expand/collapse section button */}
-          <button
+          <div
             type="button"
             onClick={() => (color ? setColor(!color) : setColor(!color))}
             className="flex w-full items-center justify-between bg-white py-3 text-sm text-gray-400 hover:text-gray-500"
@@ -93,7 +94,7 @@ export default function MobileFilter() {
                 </svg>
               )}
             </span>
-          </button>
+          </div>
         </h3>
         {/* Filter section, show/hide based on section state. */}
         <div className={`${color == true ? "" : "hidden"} py-4 `}>
@@ -192,10 +193,10 @@ export default function MobileFilter() {
           </div>
         </div>
       </div>
-      <div className="border-b border-gray-200 py-6">
+      <div className="border-b border-gray-200 py-6 px-4 ">
         <h3 className="-my-3 flow-root">
           {/* Expand/collapse section button */}
-          <button
+          <div
             onClick={() =>
               category ? setCategory(!category) : setCategory(!category)
             }
@@ -228,7 +229,7 @@ export default function MobileFilter() {
                 </svg>
               )}
             </span>
-          </button>
+          </div>
         </h3>
         {/* Filter section, show/hide based on section state. */}
         <div className={`${category == true ? "" : "hidden"} "py-4" `}>
@@ -312,10 +313,10 @@ export default function MobileFilter() {
           </div>
         </div>
       </div>
-      <div className="border-b border-gray-200 py-6">
+      <div className="border-b border-gray-200 py-6 px-4">
         <h3 className="-my-3 flow-root">
           {/* Expand/collapse section button */}
-          <button
+          <div
             onClick={() => (size ? setSize(!size) : setSize(!size))}
             className="flex w-full items-center justify-between bg-white py-3 text-sm text-gray-400 hover:text-gray-500"
           >
@@ -346,7 +347,7 @@ export default function MobileFilter() {
                 </svg>
               )}
             </span>
-          </button>
+          </div>
         </h3>
         {/* Filter section, show/hide based on section state. */}
         <div className={`${size == true ? "" : "hidden"} "py-4" `}>

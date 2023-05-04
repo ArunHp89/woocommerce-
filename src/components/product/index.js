@@ -7,14 +7,12 @@ export default function Product({
   data,
   setData,
   orgData,
-  products,
   onAddToCart,
-  cartItems,
-  totalCost,
   setSroductID,
 }) {
   const [sort, setSort] = useState(false);
   const [fiter, setFiter] = useState(false);
+  const [girdView, setGirdView] = useState(true);
 
   return (
     <>
@@ -67,7 +65,7 @@ export default function Product({
           </div>
           <main className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="flex items-baseline justify-between border-b border-gray-200 pb-6 pt-24">
-              <h1 className="text-4xl font-bold tracking-tight text-gray-900">
+              <h1 className="sm:text-4xl text-lg font-bold tracking-tight text-gray-900">
                 Our Collection
               </h1>
 
@@ -164,21 +162,37 @@ export default function Product({
                 </div>
                 <button
                   type="button"
+                  onClick={() => setGirdView(!girdView)}
                   className="-m-2 ml-5 p-2 text-gray-400 hover:text-gray-500 sm:ml-7"
                 >
                   <span className="sr-only">View grid</span>
-                  <svg
-                    className="h-5 w-5"
-                    aria-hidden="true"
-                    viewBox="0 0 20 20"
-                    fill="currentColor"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M4.25 2A2.25 2.25 0 002 4.25v2.5A2.25 2.25 0 004.25 9h2.5A2.25 2.25 0 009 6.75v-2.5A2.25 2.25 0 006.75 2h-2.5zm0 9A2.25 2.25 0 002 13.25v2.5A2.25 2.25 0 004.25 18h2.5A2.25 2.25 0 009 15.75v-2.5A2.25 2.25 0 006.75 11h-2.5zm9-9A2.25 2.25 0 0011 4.25v2.5A2.25 2.25 0 0013.25 9h2.5A2.25 2.25 0 0018 6.75v-2.5A2.25 2.25 0 0015.75 2h-2.5zm0 9A2.25 2.25 0 0011 13.25v2.5A2.25 2.25 0 0013.25 18h2.5A2.25 2.25 0 0018 15.75v-2.5A2.25 2.25 0 0015.75 11h-2.5z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
+                  {girdView ? (
+                    <svg
+                      className="h-5 w-5"
+                      aria-hidden="true"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M4.25 2A2.25 2.25 0 002 4.25v2.5A2.25 2.25 0 004.25 9h2.5A2.25 2.25 0 009 6.75v-2.5A2.25 2.25 0 006.75 2h-2.5zm0 9A2.25 2.25 0 002 13.25v2.5A2.25 2.25 0 004.25 18h2.5A2.25 2.25 0 009 15.75v-2.5A2.25 2.25 0 006.75 11h-2.5zm9-9A2.25 2.25 0 0011 4.25v2.5A2.25 2.25 0 0013.25 9h2.5A2.25 2.25 0 0018 6.75v-2.5A2.25 2.25 0 0015.75 2h-2.5zm0 9A2.25 2.25 0 0011 13.25v2.5A2.25 2.25 0 0013.25 18h2.5A2.25 2.25 0 0018 15.75v-2.5A2.25 2.25 0 0015.75 11h-2.5z"
+                        clipRule="evenodd"
+                      />
+                    </svg>
+                  ) : (
+                    <svg
+                      className="h-5 w-5"
+                      viewBox="0 0 32 32"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <title />
+                      <g data-name="menu " id="menu_">
+                        <path d="M29,6H3A1,1,0,0,0,3,8H29a1,1,0,0,0,0-2Z" />
+                        <path d="M3,17H16a1,1,0,0,0,0-2H3a1,1,0,0,0,0,2Z" />
+                        <path d="M25,24H3a1,1,0,0,0,0,2H25a1,1,0,0,0,0-2Z" />
+                      </g>
+                    </svg>
+                  )}
                 </button>
                 <button
                   type="button"
@@ -210,54 +224,91 @@ export default function Product({
                 <Filters data={data} setData={setData} orgData={orgData} />
                 {/* Product grid */}
                 <div className="lg:col-span-3">
-                  <div className="row product-list-category">
-                    {data?.map((item, i) => (
-                      <div key={i} className="col-md-4 col-6">
-                        <div className="product-list-items">
-                          <div className="product-list-link">
-                            <div className="product-thumnail">
+                  {girdView ? (
+                    <div className="row product-list-category">
+                      {data?.map((item, i) => (
+                        <div key={i} className="col-md-4 col-6">
+                          <div className="product-list-items">
+                            <div className="product-list-link">
+                              <div className="product-thumnail">
+                                <Link
+                                  to={`${item.id}`}
+                                  onClick={() => setSroductID(item.id)}
+                                >
+                                  <img
+                                    className="object-contain h-52 w-full"
+                                    src={item?.image}
+                                  />
+                                </Link>
+                              </div>
                               <Link
                                 to={`${item.id}`}
                                 onClick={() => setSroductID(item.id)}
                               >
-                                <img
-                                  className="object-contain h-52 w-full"
-                                  src={item?.image}
-                                />
+                                <h2>
+                                  {" "}
+                                  <span className="h-[41px] overflow-hidden block">
+                                    {item?.title}
+                                  </span>{" "}
+                                </h2>
                               </Link>
+                              <h2 className="pt-0">${item.price}</h2>
+                              <button
+                                className="bg-[#dd5d3b] w-full text-white"
+                                onClick={() => onAddToCart(item)}
+                              >
+                                Add to Cart
+                              </button>
                             </div>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  ) : (
+                    <ul role="list" className="-my-6 divide-y divide-gray-200">
+                      {data.map((item) => (
+                        <li className="flex py-6">
+                          <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
                             <Link
                               to={`${item.id}`}
                               onClick={() => setSroductID(item.id)}
                             >
-                              <h2>
-                                {" "}
-                                <span className="h-[41px] overflow-hidden block">
-                                  {item?.title}
-                                </span>{" "}
-                              </h2>
+                              <img
+                                src={item.image}
+                                alt="Salmon orange fabric pouch with match zipper, gray zipper pull, and adjustable hip belt."
+                                className="h-full w-full object-cover object-center"
+                              />
                             </Link>
-                            <h2 className="pt-0">${item.price}</h2>
-                            <button onClick={() => onAddToCart(item)}>
-                              Add to Cart
-                            </button>
                           </div>
-                        </div>
-                      </div>
-                    ))}
-                    <div>
-                      <h2>Cart</h2>
-                      <ul>
-                        {cartItems.map((item) => (
-                          <li key={item.id}>
-                            {item.name} - Quantity: {item.quantity} - Price: $
-                            {item.price * item.quantity}
-                          </li>
-                        ))}
-                      </ul>
-                      <p>Total Cost: ${totalCost}</p>
-                    </div>
-                  </div>
+                          <div className="ml-4 flex flex-1 flex-col">
+                            <div>
+                              <div className="">
+                                <Link
+                                  to={`${item.id}`}
+                                  onClick={() => setSroductID(item.id)}
+                                >
+                                  <h3 className="text-base text-black">
+                                    {item.title}
+                                  </h3>
+                                </Link>
+                                <p className="mt-1">
+                                  <span className="font-semibold">Price</span> $
+                                  {item.price}
+                                </p>
+                              </div>
+
+                              <button
+                                className="btn btn-primary !py-2 !min-h-0 !leading-none"
+                                onClick={() => onAddToCart(item)}
+                              >
+                                Add to Cart
+                              </button>
+                            </div>
+                          </div>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
                 </div>
               </div>
             </section>

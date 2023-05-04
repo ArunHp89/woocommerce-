@@ -1236,8 +1236,33 @@ h3.sidebar-head:after {
 }
 @media(max-width:1024px) {
 	
-
-
+    .category-right.ml-3 {
+        padding-right: 54px;
+    }
+    .category-right.ml-3 {
+        padding-right: 54px;
+    }
+    
+    .category-naviagtion {
+        position: absolute;
+        width: 100%;
+        background: #f1f1f1f1 !important;
+        top: 69px;
+        z-index: 9999;
+        max-width: 300px;
+    }
+    
+    .category-naviagtion ul.menu {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        text-align: -webkit-auto;
+        padding: 16px 0;
+    }
+    
+    .category-naviagtion ul.menu li {
+        padding: 4px 19px;
+    }
 ul.footer-nav.text-right {
     text-align: center !important;
     margin-top: 2px;
@@ -1289,6 +1314,38 @@ ul.footer-nav.text-right {
 	
 	.yogamats-carousel-wrapper{padding: 40px 20px 0 20px;}
 	.yogamats-carousel-wrapper h2.title {font-size: 30px;}
+}
+@media(max-width:650px){
+    .middle-nav-container {
+        width: 100%;
+        max-width: 100%;
+        flex: 0 0 100%;
+        justify-content: center;
+        padding-top: 14px;
+    }
+    .toogle-menu {
+        top: -49px;
+    }
+    .category-naviagtion {
+        top: 0;
+        right: 0;
+        max-width: 100%;
+    }
+    .category-right.ml-3 {
+        padding: 0;
+    }
+    .header-cart {
+        margin-left: 9px;
+        width: 40px;
+        height: 40px;
+    }
+    .category-search .form-control {
+        height: 43px;
+        width: 271px;
+    }
+    .category-search .form-group .btn {
+        top: 4px;
+    }
 }
 .matchheight.live-health-products img {
     width: 100%;

@@ -14,7 +14,6 @@ export default function Filters({ data, setData, orgData }) {
     });
     return setData(filter);
   };
-  console.log(data);
   return (
     <form className="hidden lg:block">
       <h3 className="sr-only">Categories</h3>
