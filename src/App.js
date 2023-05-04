@@ -14,6 +14,7 @@ import Blog from "./components/Blog";
 import Error from "./components/Error";
 import Cart from "./components/Cart";
 import CardDraw from "./components/common-components/CardDraw";
+import ScrollToTop from "./components/common-components/ScrollToTop";
 function App({ products }) {
   // Close Draw
 
@@ -98,6 +99,7 @@ function App({ products }) {
 
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <Layout data={orgData} cartItems={cartItems} setSroductID={setSroductID}>
         <CardDraw
           cartDraw={cartDraw}
