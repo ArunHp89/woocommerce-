@@ -14,6 +14,22 @@ function Support({ data, setSroductID }) {
     speed: 500,
     slidesToShow: 3,
     slidesToScroll: 1,
+    responsive: [
+      {
+        breakpoint: 768,
+        settings: {
+          arrows: false,
+          slidesToShow: 2,
+        },
+      },
+      {
+        breakpoint: 650,
+        settings: {
+          arrows: false,
+          slidesToShow: 1,
+        },
+      },
+    ],
   };
   return (
     <>
@@ -22,7 +38,7 @@ function Support({ data, setSroductID }) {
           <div className="row">
             <div className="col-sm-6 col-12">
               <div className="yogamats-carousel-wrapper">
-                <h2 className="title"> YOGA SUPPORT MATS</h2>
+                <h2 className="title"> YOGA SUPPORT MATS </h2>
                 <div className="yogamats-carousel owl-carousel owl-theme">
                   <Slider {...settings}>
                     {data?.slice(0, 6).map((item, index) => (
