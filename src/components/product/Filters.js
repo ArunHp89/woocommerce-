@@ -66,8 +66,6 @@ export default function Filters({ data, setData, orgData }) {
             type="button"
             onClick={() => (color ? setColor(!color) : setColor(!color))}
             className="flex w-full items-center justify-between bg-white py-3 text-sm text-gray-400 hover:text-gray-500"
-            aria-controls="filter-section-0"
-            aria-expanded="false"
           >
             <span className="font-medium text-gray-900">Color</span>
             <span className="ml-6 flex items-center">
@@ -99,10 +97,7 @@ export default function Filters({ data, setData, orgData }) {
           </button>
         </h3>
         {/* Filter section, show/hide based on section state. */}
-        <div
-          className={`${color == true ? "" : "hidden"} "pt-6" `}
-          id="filter-section-0"
-        >
+        <div className={`${color == true ? "" : "hidden"} "pt-6" `}>
           <div className="space-y-4">
             <div className="flex items-center">
               <input
@@ -207,8 +202,6 @@ export default function Filters({ data, setData, orgData }) {
               category ? setCategory(!category) : setCategory(!category)
             }
             className="flex w-full items-center justify-between bg-white py-3 text-sm text-gray-400 hover:text-gray-500"
-            aria-controls="filter-section-1"
-            aria-expanded="false"
           >
             <span className="font-medium text-gray-900">Category</span>
             <span className="ml-6 flex items-center">
@@ -240,10 +233,7 @@ export default function Filters({ data, setData, orgData }) {
           </button>
         </h3>
         {/* Filter section, show/hide based on section state. */}
-        <div
-          className={`${category == true ? "" : "hidden"} "pt-6" `}
-          id="filter-section-1"
-        >
+        <div className={`${category == true ? "" : "hidden"} "pt-6" `}>
           <div className="space-y-4">
             <div className="flex items-center">
               <input
@@ -331,8 +321,6 @@ export default function Filters({ data, setData, orgData }) {
             onClick={() => (size ? setSize(!size) : setSize(!size))}
             type="button"
             className="flex w-full items-center justify-between bg-white py-3 text-sm text-gray-400 hover:text-gray-500"
-            aria-controls="filter-section-2"
-            aria-expanded="false"
           >
             <span className="font-medium text-gray-900">Size</span>
             <span className="ml-6 flex items-center">
@@ -364,10 +352,7 @@ export default function Filters({ data, setData, orgData }) {
           </button>
         </h3>
         {/* Filter section, show/hide based on section state. */}
-        <div
-          className={`${size == true ? "" : "hidden"} "pt-6" `}
-          id="filter-section-2"
-        >
+        <div className={`${size == true ? "" : "hidden"} "pt-6" `}>
           <div className="space-y-4">
             <div className="flex items-center">
               <input
