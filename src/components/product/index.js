@@ -3,22 +3,39 @@ import { Link } from "react-router-dom";
 import Filters from "./Filters";
 import MobileFilter from "./MobileFilter";
 
-export default function Product({ data, setData, orgData , products, onAddToCart , cartItems, totalCost , setSroductID}) {
+export default function Product({
+  data,
+  setData,
+  orgData,
+  products,
+  onAddToCart,
+  cartItems,
+  totalCost,
+  setSroductID,
+}) {
   const [sort, setSort] = useState(false);
   const [fiter, setFiter] = useState(false);
-  
+
   return (
     <>
-      <div className={`${fiter?" relative z-[999]":""}  bg-white`}>
+      <div className={`${fiter ? " relative z-[999]" : ""}  bg-white`}>
         <div>
           <div
-            className={`  ${fiter?"":"hidden"} relative z-40 lg:hidden `}
+            className={`  ${fiter ? "" : "hidden"} relative z-40 lg:hidden `}
             role="dialog"
             aria-modal="true"
           >
-            <div className={ ` ${fiter?"":""} z-30 fixed inset-0 bg-black bg-opacity-25`} />
+            <div
+              className={` ${
+                fiter ? "" : ""
+              } z-30 fixed inset-0 bg-black bg-opacity-25`}
+            />
             <div className="fixed inset-0 z-40 flex">
-              <div className={ ` ${fiter?"":""} px-4 relative ml-auto flex h-full w-full max-w-xs flex-col overflow-y-auto bg-white py-4 pb-12 shadow-xl`}>
+              <div
+                className={` ${
+                  fiter ? "" : ""
+                }  relative ml-auto flex h-full w-full max-w-xs flex-col overflow-y-auto bg-white py-4 pb-12 shadow-xl`}
+              >
                 <div className="flex items-center justify-between px-4">
                   <h2 className="text-lg font-medium text-gray-900">Filters</h2>
                   <button
@@ -27,7 +44,7 @@ export default function Product({ data, setData, orgData , products, onAddToCart
                   >
                     <span className="sr-only">Close menu</span>
                     <svg
-                    onClick={()=>setFiter(false)}
+                      onClick={() => setFiter(false)}
                       className="h-6 w-6"
                       fill="none"
                       viewBox="0 0 24 24"
@@ -44,7 +61,7 @@ export default function Product({ data, setData, orgData , products, onAddToCart
                   </button>
                 </div>
                 {/* Filters */}
-                <MobileFilter  data={data} setData={setData} orgData={orgData}/>
+                <MobileFilter data={data} setData={setData} orgData={orgData} />
               </div>
             </div>
           </div>
@@ -165,7 +182,7 @@ export default function Product({ data, setData, orgData , products, onAddToCart
                 </button>
                 <button
                   type="button"
-                  onClick={()=>setFiter(true)}
+                  onClick={() => setFiter(true)}
                   className="-m-2 ml-4 p-2 text-gray-400 hover:text-gray-500 sm:ml-6 lg:hidden"
                 >
                   <span className="sr-only">Filters</span>
@@ -196,43 +213,50 @@ export default function Product({ data, setData, orgData , products, onAddToCart
                   <div className="row product-list-category">
                     {data?.map((item, i) => (
                       <div key={i} className="col-md-4 col-6">
-                        
-                          <div className="product-list-items">
-                            <div className="product-list-link">
-                              <div className="product-thumnail">
-                              <Link to={`${item.id}`} onClick={()=>setSroductID(item.id)}>
+                        <div className="product-list-items">
+                          <div className="product-list-link">
+                            <div className="product-thumnail">
+                              <Link
+                                to={`${item.id}`}
+                                onClick={() => setSroductID(item.id)}
+                              >
                                 <img
                                   className="object-contain h-52 w-full"
                                   src={item?.image}
                                 />
-                                </Link>
-                              </div>
-                              <Link to={`${item.id}`} onClick={()=>setSroductID(item.id)}>
+                              </Link>
+                            </div>
+                            <Link
+                              to={`${item.id}`}
+                              onClick={() => setSroductID(item.id)}
+                            >
                               <h2>
                                 {" "}
                                 <span className="h-[41px] overflow-hidden block">
                                   {item?.title}
                                 </span>{" "}
                               </h2>
-                              </Link>
-                              <h2 className="pt-0">${item.price}</h2>
-                              <button  onClick={() => onAddToCart(item)}>Add to Cart</button>
-                            </div>
+                            </Link>
+                            <h2 className="pt-0">${item.price}</h2>
+                            <button onClick={() => onAddToCart(item)}>
+                              Add to Cart
+                            </button>
                           </div>
-                       
+                        </div>
                       </div>
                     ))}
                     <div>
-          <h2>Cart</h2>
-          <ul>
-            {cartItems.map((item) => (
-              <li key={item.id}>
-                {item.name} - Quantity: {item.quantity} - Price: ${item.price * item.quantity}
-              </li>
-            ))}
-          </ul>
-          <p>Total Cost: ${totalCost}</p>
-        </div>
+                      <h2>Cart</h2>
+                      <ul>
+                        {cartItems.map((item) => (
+                          <li key={item.id}>
+                            {item.name} - Quantity: {item.quantity} - Price: $
+                            {item.price * item.quantity}
+                          </li>
+                        ))}
+                      </ul>
+                      <p>Total Cost: ${totalCost}</p>
+                    </div>
                   </div>
                 </div>
               </div>

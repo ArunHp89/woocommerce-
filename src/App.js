@@ -13,7 +13,7 @@ import Career from "./components/Career";
 import Blog from "./components/Blog";
 import Error from "./components/Error";
 import Cart from "./components/Cart";
-import CardDraw from './components/common-components/CardDraw';
+import CardDraw from "./components/common-components/CardDraw";
 function App({ products }) {
   // Close Draw
 
@@ -22,8 +22,8 @@ function App({ products }) {
   const [totalCost, setTotalCost] = useState(0);
   const [cartDraw, setCartDraw] = useState(true);
   useEffect(() => {
-    const storedCartItems = JSON.parse(localStorage.getItem('cartItems'));
-    const storedTotalCost = JSON.parse(localStorage.getItem('totalCost'));
+    const storedCartItems = JSON.parse(localStorage.getItem("cartItems"));
+    const storedTotalCost = JSON.parse(localStorage.getItem("totalCost"));
     if (storedCartItems && storedTotalCost) {
       setCartItems(storedCartItems);
       setTotalCost(storedTotalCost);
@@ -31,13 +31,15 @@ function App({ products }) {
   }, []);
 
   useEffect(() => {
-    localStorage.setItem('cartItems', JSON.stringify(cartItems));
-    localStorage.setItem('totalCost', JSON.stringify(totalCost));
+    localStorage.setItem("cartItems", JSON.stringify(cartItems));
+    localStorage.setItem("totalCost", JSON.stringify(totalCost));
   }, [cartItems, totalCost]);
 
   const addToCartHandler = (product) => {
     setCartDraw(false);
-    const existingCartItemIndex = cartItems.findIndex((item) => item.id === product.id);
+    const existingCartItemIndex = cartItems.findIndex(
+      (item) => item.id === product.id
+    );
     if (existingCartItemIndex !== -1) {
       const cartItemsCopy = [...cartItems];
       cartItemsCopy[existingCartItemIndex].quantity += 1;
@@ -47,25 +49,27 @@ function App({ products }) {
     }
     setTotalCost(totalCost + product.price);
   };
-// end
-// remove item from card
-const removeFromCartHandler = (itemId) => {
-
-  const itemToRemoveIndex = cartItems.findIndex((item) => item.id === itemId);
-  if (itemToRemoveIndex !== -1) {
-    const cartItemsCopy = [...cartItems];
-    const removedItem = cartItemsCopy.splice(itemToRemoveIndex, 1)[0];
-    setCartItems(cartItemsCopy);
-    setTotalCost(totalCost - (removedItem.price * removedItem.quantity));
-  }
-};
-// end
+  // end
+  // remove item from card
+  const removeFromCartHandler = (itemId) => {
+    const itemToRemoveIndex = cartItems.findIndex((item) => item.id === itemId);
+    if (itemToRemoveIndex !== -1) {
+      const cartItemsCopy = [...cartItems];
+      const removedItem = cartItemsCopy.splice(itemToRemoveIndex, 1)[0];
+      setCartItems(cartItemsCopy);
+      setTotalCost(totalCost - removedItem.price * removedItem.quantity);
+    }
+  };
+  // end
   const [orgData, setOrgData] = useState(null);
   const [data, setData] = useState(orgData);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [productID, setSroductID] = useState(
-    window.location.pathname.replace("http://localhost:3000/collection/" , "" ).replace(  "/collection/" , "").replace("collection" ,"")
+    window.location.pathname
+      .replace("http://localhost:3000/collection/", "")
+      .replace("/collection/", "")
+      .replace("collection", "")
   );
 
   useEffect(() => {
@@ -95,10 +99,21 @@ const removeFromCartHandler = (itemId) => {
   return (
     <BrowserRouter>
       <Layout data={orgData} cartItems={cartItems} setSroductID={setSroductID}>
-      <CardDraw cartDraw={cartDraw} setCartDraw={setCartDraw} shadow="hidden" cartItems={cartItems} onRemoveFromCart={removeFromCartHandler} totalCost={totalCost} onAddToCart={addToCartHandler}/>
+        <CardDraw
+          cartDraw={cartDraw}
+          setCartDraw={setCartDraw}
+          shadow="hidden"
+          cartItems={cartItems}
+          onRemoveFromCart={removeFromCartHandler}
+          totalCost={totalCost}
+          onAddToCart={addToCartHandler}
+        />
         <Routes>
           <Route path="/">
-            <Route index={true} element={<Home setSroductID={setSroductID} data={data} />} />
+            <Route
+              index={true}
+              element={<Home setSroductID={setSroductID} data={data} />}
+            />
           </Route>
           <Route path="/login">
             <Route index={true} element={<Login />} />
@@ -110,14 +125,32 @@ const removeFromCartHandler = (itemId) => {
             <Route index={true} element={<Blog />} />
           </Route>
           <Route path="cart">
-            <Route index={true} element={<Cart cartItems={cartItems} onRemoveFromCart={removeFromCartHandler} totalCost={totalCost} onAddToCart={addToCartHandler} />} />
+            <Route
+              index={true}
+              element={
+                <Cart
+                  cartItems={cartItems}
+                  onRemoveFromCart={removeFromCartHandler}
+                  totalCost={totalCost}
+                  onAddToCart={addToCartHandler}
+                />
+              }
+            />
           </Route>
           <Route path="/collection">
             <Route
               index={true}
               element={
-                <Product setSroductID={setSroductID} data={data} setData={setData} orgData={orgData} products={products} onAddToCart={addToCartHandler} 
-                cartItems={cartItems} totalCost={totalCost}  />
+                <Product
+                  setSroductID={setSroductID}
+                  data={data}
+                  setData={setData}
+                  orgData={orgData}
+                  products={products}
+                  onAddToCart={addToCartHandler}
+                  cartItems={cartItems}
+                  totalCost={totalCost}
+                />
               }
             />
             <Route

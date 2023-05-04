@@ -3,7 +3,7 @@ import Product from "./Product";
 import yogaPro from "../../images/yogamat-product-1.jpg";
 import { Link } from "react-router-dom";
 
-function FeatureProduct({ data , setSroductID}) {
+function FeatureProduct({ data, setSroductID }) {
   return (
     <>
       <section className="feature-collection-wrapper">
@@ -21,7 +21,10 @@ function FeatureProduct({ data , setSroductID}) {
             {data?.slice(9, 13).map((item, index) => (
               <div key={index} className="col-sm-3 col-6">
                 <div className="feature-collection-item matchheight">
-                  <Link to={`/collection/${item?.id}`} onClick={()=>setSroductID(item.id)}>
+                  <Link
+                    to={`/collection/${item?.id}`}
+                    onClick={() => setSroductID(item.id)}
+                  >
                     <div className="feature-collection-thumb">
                       <img className="bg-white" src={item?.image} />
                       <span className="price">$8.00</span>

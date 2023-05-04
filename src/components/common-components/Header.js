@@ -6,7 +6,10 @@ function Header({ props }) {
   const [searchData, setSearchData] = useState(null);
   const [fieldData, setFieldData] = useState("");
   const [toggle, setToggle] = useState(false);
-  const itemCount = props.cartItems.reduce((total ,item)=> total + item.quantity,0);
+  const itemCount = props.cartItems.reduce(
+    (total, item) => total + item.quantity,
+    0
+  );
   const searchFilter = (e) => {
     setFieldData(e.target.value);
     const finterData = props.data.filter((item) => {
@@ -169,7 +172,6 @@ function Header({ props }) {
                                         <p className="text-base leading-6 font-medium text-gray-900">
                                           {item.title}
                                         </p>
-                                     
                                       </div>
                                     </a>
                                   </Link>
@@ -191,11 +193,12 @@ function Header({ props }) {
               </div>
               <div className="header-cart relative">
                 <Link to="cart">
-                <div className="header-cart-inner ">
-                  <i className="fa fa-shopping-bag" />
-                  <span className="absolute -right-1 -top-1 w-5 h-5 rounded-full bg-white border-2 flex items-center justify-center">{itemCount}</span>
-               
-                </div>
+                  <div className="header-cart-inner ">
+                    <i className="fa fa-shopping-bag" />
+                    <span className="absolute -right-1 -top-1 w-5 h-5 rounded-full bg-white border-2 flex items-center justify-center">
+                      {itemCount}
+                    </span>
+                  </div>
                 </Link>
               </div>
             </div>
