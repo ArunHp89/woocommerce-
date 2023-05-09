@@ -10,7 +10,6 @@ export default function SingleProduct({
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  console.log(productID, "currentURL");
   useEffect(() => {
     const getData = async () => {
       try {

@@ -14,7 +14,6 @@ export default function MobileFilter({ data, setData, orgData }) {
     });
     return setData(filter);
   };
-  console.log(orgData, "orgData   mob");
   return (
     <form className="mt-4 border-t border-gray-200">
       <h3 className="sr-only">Categories</h3>

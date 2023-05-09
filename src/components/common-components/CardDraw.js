@@ -14,13 +14,13 @@ export default function CardDraw({
       <div
         onClick={() => setCartDraw(true)}
         className={`${
-          cartDraw ? "hidden" : ""
-        }  z-30 fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity`}
+          cartDraw ? "w-0 opacity-0" : "w-full  opacity-100"
+        }  z-20 fixed inset-0 bg-gray-500 bg-opacity-75 transition-[2.9s] right-0`}
       />
       <div
         className={`${
-          cartDraw ? "hidden" : ""
-        } z-30 fixed inset-0 overflow-hidden`}
+          cartDraw ? "w-0 opacity-0" : "w-md  opacity-100 "
+        } max-w-md  z-30 fixed inset-0 overflow-hidden  transition-[2.9s] right-0`}
       >
         <div className="absolute inset-0 overflow-hidden">
           <div className="pointer-events-none fixed inset-y-0 right-0 flex max-w-full pl-10">

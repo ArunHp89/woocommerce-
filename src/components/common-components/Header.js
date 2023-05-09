@@ -137,7 +137,6 @@ function Header({ props }) {
               <div className="category-right ml-3">
                 <div className="category-search">
                   <div className="form-group">
-                    {console.log(props.data, "search")}
                     <input
                       onChange={searchFilter}
                       className="form-control"
@@ -203,117 +202,6 @@ function Header({ props }) {
           </div>
         </div>
       </div>
-      {/* <div className={`${toggle ? "d-block" : ""} category-naviagtion`}>
-        <div className="container">
-          <div className="d-flex align-items-center justify-content-between">
-            <div className="category-nav">
-              <ul className="menu">
-                <li className="mobile-menu">
-                  <a href>
-                    {" "}
-                    YOGA <i className="fa fa-angle-down" />{" "}
-                  </a>
-                </li>
-                <li className="mobile-menu">
-                  <a href>
-                    {" "}
-                    ACTIVE BALANCE <i className="fa fa-angle-down" />{" "}
-                  </a>
-                </li>
-                <li className="mobile-menu">
-                  <a href>
-                    {" "}
-                    APPAREL <i className="fa fa-angle-down" />{" "}
-                  </a>
-                </li>
-                <li className="mobile-menu">
-                  <a href>
-                    {" "}
-                    RECOVER <i className="fa fa-angle-down" />{" "}
-                  </a>
-                </li>
-                <li className="mobile-menu">
-                  <a href>
-                    {" "}
-                    MEDITATION <i className="fa fa-angle-down" />{" "}
-                  </a>
-                </li>
-                <li className="mobile-menu">
-                  <a href>
-                    {" "}
-                    SALE <i className="fa fa-angle-down" />{" "}
-                  </a>
-                </li>
-              </ul>
-            </div>
-            <div className="category-right">
-              <div className="category-search">
-                <div className="form-group">
-                  {console.log(props.data, "search")}
-                  <input
-                    onChange={searchFilter}
-                    className="form-control"
-                    placeholder="Search"
-                  />
-                  <button className="btn btn-primary">
-                    <i className="fa fa-search" />
-                  </button>
-                  {fieldData != "" ? (
-                    <div className="absolute max-h-96 overflow-y-scroll shadow-sm -ml-4 mt-3 transform px-2 w-screen max-w-md sm:px-0 lg:ml-0 lg:left-1/2 lg:-translate-x-1/2 z-30">
-                      <div className="rounded-lg shadow-lg">
-                        <div className="rounded-lg shadow-xs overflow-hidden">
-                          <div className="z-20 relative grid gap-6 bg-white px-5 py-6 sm:gap-8 sm:p-8">
-                            {searchData?.length > 0 ? (
-                              searchData?.map((item, i) => {
-                                return (
-                                  <Link key={i} to={`collection/${item.id}`}>
-                                    <a
-                                      onClick={() =>
-                                        props.setSroductID(item.id)
-                                      }
-                                      className="-m-3 p-3 flex items-start space-x-4 rounded-lg hover:bg-gray-50 transition ease-in-out duration-150"
-                                    >
-                                      <img
-                                        className="w-10 h-10 object-cover"
-                                        src={item.image}
-                                      />
-                                      <div className="space-y-1">
-                                        <p className="text-base leading-6 font-medium text-gray-900">
-                                          {item.title}
-                                        </p>
-                                      </div>
-                                    </a>
-                                  </Link>
-                                );
-                              })
-                            ) : (
-                              <p className="text-center text-red-500 font-semibold m-0">
-                                No Data Abilable on {fieldData} search
-                              </p>
-                            )}
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  ) : (
-                    ""
-                  )}
-                </div>
-              </div>
-              <div className="header-cart relative">
-                <Link to="cart">
-                  <div className="header-cart-inner ">
-                    <i className="fa fa-shopping-bag" />
-                    <span className="absolute -right-1 -top-1 w-5 h-5 rounded-full bg-white border-2 flex items-center justify-center">
-                      {itemCount}
-                    </span>
-                  </div>
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div> */}
     </header>
   );
 }
