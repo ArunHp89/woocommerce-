@@ -31,7 +31,10 @@ function Header({ props }) {
       />
       <div className="top-header-info">
         <div className="container">
-          <p> FREE SHIPPING ON ORDERS $75+! </p>
+          <p className="font-light">
+            {" "}
+            created by Arun.Sharma - devChallenges.io
+          </p>
         </div>
       </div>
       <div className="main-navigation-outer">
