@@ -102,32 +102,32 @@ function Header({ props }) {
                   <ul className="menu">
                     <li>
                       {" "}
-                      <Link to="/collection">
+                      <Link onClick={() => setToggle(!toggle)} to="/collection">
                         <a> WHOLESALE </a>
                       </Link>
                     </li>
                     <li>
-                      <Link to="/careers">
+                      <Link onClick={() => setToggle(!toggle)} to="/careers">
                         <a href> Careers</a>
                       </Link>
                     </li>
                     <li>
-                      <Link to="/blog">
+                      <Link onClick={() => setToggle(!toggle)} to="/blog">
                         <a href> BLOG</a>
                       </Link>
                     </li>
                     <li>
-                      <Link to="/careers">
+                      <Link onClick={() => setToggle(!toggle)} to="/careers">
                         <a href> SPRI</a>
                       </Link>
                     </li>
                     <li>
-                      <Link to="/careers">
+                      <Link onClick={() => setToggle(!toggle)} to="/careers">
                         <a href> YOGA STUDIO APP</a>
                       </Link>
                     </li>
                     <li>
-                      <Link to="/login">
+                      <Link onClick={() => setToggle(!toggle)} to="/login">
                         <a href> Login</a>
                       </Link>
                     </li>
