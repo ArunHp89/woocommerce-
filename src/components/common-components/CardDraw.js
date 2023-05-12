@@ -22,8 +22,16 @@ export default function CardDraw({
           cartDraw ? "w-0 opacity-0" : "w-md  opacity-100 "
         } max-w-md  z-30 fixed inset-0 overflow-hidden  transition-[2.9s] right-0`}
       >
-        <div className="absolute inset-0 overflow-hidden">
-          <div className="pointer-events-none fixed inset-y-0 right-0 flex max-w-full pl-10">
+        <div
+          className={`${
+            cartDraw ? "w-0 opacity-0" : "w-md  opacity-100 "
+          } absolute inset-0 overflow-hidden`}
+        >
+          <div
+            className={`${
+              cartDraw ? "w-0 opacity-0" : "w-md  opacity-100 "
+            } pointer-events-none fixed inset-y-0 right-0 flex max-w-full pl-10`}
+          >
             <div className="pointer-events-auto w-screen max-w-md">
               {cartItems.length === 0 ? (
                 <div className="flex h-full flex-col overflow-y-scroll bg-white shadow-xl">

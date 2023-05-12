@@ -59,7 +59,7 @@ export default function MobileFilter({ data, setData, orgData }) {
         </li>
       </ul>
       <div className="border-b  border-gray-200 py-6 px-4 ">
-        <h3 className="-my-3 flow-root">
+        <h3 className="-my-3 flow-root mobile">
           {/* Expand/collapse section button */}
           <div
             type="button"
